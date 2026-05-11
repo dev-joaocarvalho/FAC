@@ -1,0 +1,20 @@
+.text
+.globl main
+main:
+    li a7, 5        # ReadInt (syscall 5) - le primeiro numero
+    ecall
+    mv t0, a0       # salva n1 em t0
+
+    li a7, 5        # ReadInt (syscall 5) - le segundo numero
+    ecall
+
+    add a0, t0, a0  # a0 = n1 + n2
+    li a7, 1        # PrintInt (syscall 1)
+    ecall
+
+    li a0, 10       # caractere '\n' (ASCII 10)
+    li a7, 11       # PrintChar (syscall 11)
+    ecall
+
+    li a7, 10       # Exit (syscall 10)
+    ecall

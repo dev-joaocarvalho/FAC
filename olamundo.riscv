@@ -1,0 +1,12 @@
+.data
+    msg: .string "Ola Mundo\n"
+
+.text
+.globl main
+main:
+    la a0, msg      # carrega endereco da string
+    li a7, 4        # PrintString (syscall 4)
+    ecall
+
+    li a7, 10       # Exit (syscall 10)
+    ecall
